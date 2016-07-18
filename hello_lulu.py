@@ -9,4 +9,5 @@ def hello_world_lulu():
     return 'Hello world!'
     
 if __name__ == '__main__':
-	app_lulu.run(debug=False)
+#	app_lulu.run(port=33507)
+       app_lulu.run()
