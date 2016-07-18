@@ -1,5 +1,5 @@
 from flask import Flask
-app_lulu = Flask(__name__)
+app = Flask(__name__)
 
 @app.route('/hello_page')
 def hello_world():
