@@ -1,1 +1,1 @@
-web: python application_lulu.py --log-file -
+web: python hello_lulu.py --log-file -
