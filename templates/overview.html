@@ -1,0 +1,177 @@
+<!doctype html>
+<title>Yelp overview  </title>
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style2.css')}}'>
+<div class=page>
+  <h1> 
+  Overview of Yelp review analysis
+  </h1>
+  
+ <h3> 
+  <br>
+  The Overall Project:
+   <br>
+   <br>
+   1) Used python and various python packages (pandas, scipy, scikit-learn...) to analyize
+      several gigabytes of Yelp review data -- 2 million reviews from the past decade. 
+   <br>
+   <br>
+   2) Looking into these questions: 
+   <br>
+   What draws Yelpers to write return follow-up reviews?  
+   <br>
+   What keeps them coming back to a business?  
+   <br>
+   How can businesses use this to maintain good customer relations?
+   <br>
+   <br>
+    3)  What I've found so far:  
+    <br>
+    Restaurant reviews on the whole are positive and are mostly concerned with quality of food.  Yelpers who write return reviews are wordier and
+    are significantly more concerned with good service.
+  </h3>  
+  
+</div>
+
+<div class=page>
+{% if filename %}
+  <h1> 
+  <img src="{{ url_for('static',filename='barchart_friends.png')}}", width=500, height=375>
+  <img src="{{ url_for('static',filename='barchart_friendsFR.png')}}", width=500, height=375> 
+  <img src="{{ url_for('static',filename='barchart_friendsRR.png')}}", width=500, height=375>
+  </h1>
+{% else %}
+<h1>no image!</h1>
+{% endif %}
+  <div class=metanav>
+  </div>
+    <h2> 
+    "Friendless" Yelp reviewers are more likely to give both one-star and five-star ratings.
+    The opposite trend applies to Yelpers with friends.
+     <br>
+     Both one-star and five-star ratings INCREASE slightly upon RETURN reviews. 
+    </h2>
+</div>
+
+<div class=page>
+{% if filename %}
+  <h1> 
+  <img src="{{ url_for('static',filename='barchart_frequency.png')}}", width=500, height=375>
+  <img src="{{ url_for('static',filename='barchart_frequencyFR.png')}}", width=500, height=375> 
+  <img src="{{ url_for('static',filename='barchart_frequencyRR.png')}}", width=500, height=375>
+  </h1>
+{% else %}
+<h1>no image!</h1>
+{% endif %}
+  <div class=metanav>
+  </div>
+    <h2> 
+    Infrequent Yelp reviewers are even more likely to give both one-star and five-star ratings.
+    The opposite trend applies to frequent Yelpers.
+     <br>
+     Again, both one-star and five-star ratings increase slightly upon return reviews.
+     The one exception is that when infrequent users come back to write return reviews,
+      their percentage of ONE-STAR ratings DECREASES by about 3%.   
+    </h2>
+</div>
+
+<div class=page>
+{% if filename %}
+  <h1> 
+  <img src="{{ url_for('static',filename='length_vs_star.png')}}", width=400, height=400>
+  <img src="{{ url_for('static',filename='star_vs_yr.png')}}", width=400, height=400>
+  <img src="{{ url_for('static',filename='star_vs_month.png')}}", width=400, height=400> 
+  </h1>
+{% else %}
+<h1>no image!</h1>
+{% endif %}
+  <div class=metanav>
+  </div>
+    <h2>
+    The text length of reviews decreases with star rating.  Unhappy reviewers have more to say.
+    First-time reviews, those destined to be followed up with a return review, are unusually long.  
+    <br>
+    <br>
+    On the other hand there do not seem to be significant global time trends in star-ratings.
+    Evolution of average Yelp ratings over the past decade have not fluctuated significantly,
+    except for an unusually high rating in the first year.
+    Month-to-month variations are minimal, implying seasons or time-of-year has negligible effect.
+    </h2>
+</div>
+
+<div class=page>
+    <h2>
+   Most-used words, weighted by term-frequency inverse-document frequency.
+    <br>
+    <br>
+    Left: Most-used words over all reviews.
+    &emsp;
+     Frequent words in "first-time" reviews.
+     &nbsp; &nbsp; 
+     Frequent words in "follow-up" reviews.
+     </h2>
+{% if filename %}
+  <h1> 
+  <img src="{{ url_for('static',filename='top_words_all.png')}}", width=400, height=600>
+  <img src="{{ url_for('static',filename='top_words_first.png')}}", width=400, height=600>
+  <img src="{{ url_for('static',filename='top_words_return.png')}}", width=400, height=600> 
+  </h1>
+{% else %}
+<h1>no image!</h1>
+{% endif %}
+  <div class=metanav>
+  </div>
+     <h2>
+     Reviews have an overall emphasis on food, but initial reviews and their follow-ups have a
+     greater concern with customer service.
+     <br>
+     Yelpers also really like sweet potato fries.
+    </h2>
+</div>
+
+<div class=page>
+    <h2>
+   Most-used words, weighted by term-frequency inverse-document frequency.
+    <br>
+    <br>
+    Five-star return reviews.
+    &emsp; &emsp; &emsp; &emsp;  &emsp;  &emsp;  &emsp; 
+     One-star return reviews.
+     </h2>
+{% if filename %}
+  <h1> 
+  <img src="{{ url_for('static',filename='top_words_returnG.png')}}", width=400, height=600>
+  <img src="{{ url_for('static',filename='top_words_returnB.png')}}", width=400, height=600> 
+  </h1>
+{% else %}
+<h1>no image!</h1>
+{% endif %}
+  <div class=metanav>
+  </div>
+     <h2>
+      Both one-star and five-star reviews have the same most frequent bigram - "customer service."
+      If Yelpers write return-reviewers, the subject is weighted more towards service than food.
+    </h2>
+</div>
+
+<div class=page>
+  <h3> 
+  The Takeways:
+  <br>
+   <br>
+  1) Yelp reviews are overall positive, and have stayed that over the seasons and years.
+   <br>
+   <br>
+  2) Infrequent/friendless Yelpers who are drawn to write their rare reviews rate more often
+  at the extremes of one-star and five-stars.
+  <br>
+   <br>
+  3)  Yelpers who review the same place more than once tend to be initially more 
+  verbose and more concerned with customer service.  The follow-up reviews are even more focused
+  on good or terrible service.
+   <br>
+    <br>
+  4)  Yelpers love love love sweet potato fries.
+  </h3>
+
+</div>
+ 

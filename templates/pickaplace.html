@@ -1,0 +1,26 @@
+<!doctype html>
+<title>Query</title>
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style.css')}}'>
+<div class=page>
+  <h1>Specify a Business</h1>
+
+  <div class=metanav>
+
+    Pick a business from that city:
+
+    <h4>
+      <form id='answerform' method='post' action='pickaplace' >      
+        <p>
+         {% for business in business_list %}
+        <input type='radio' name='business_pick' value = {{business}} \> 
+          {{business_list[business]}} {{address_list[business]}}</input><br />
+         {% endfor %}
+        </p>
+
+        <p>
+          <input type='submit'  />
+        </p>
+      </form>
+    </h4>
+  </div>
+</div>
