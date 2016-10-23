@@ -1,7 +1,6 @@
 <!doctype html>
-<html>
+<html>	
 <title>My Predictions</title>
-
   <head>
   
     <meta charset="utf-8">
@@ -9,14 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    
 
     <!-- Bootstrap Core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-
+	<!-- <link href="../static/css/UI-Dropdown-master/dropdown.css" rel="stylesheet" type="text/css"> -->
+	<link href="../static/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css">
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -29,10 +29,37 @@
     <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.2.min.css" type="text/css" />
     <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.2.min.js"></script>
 
+
+
   </head>  
     
   <body>
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Star Rating Predictions</a>
+            </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" href="#predict">Predict Rating</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
     <!-- Prediction Section -->
     <section id="predict" class="bg-light-gray">
         <div class="container">
@@ -49,10 +76,30 @@
                          <form id='answerform' method='post' action='/next' >
                          
                         <div class="row">
-                            <div class="col-md-4">          
+                            <div class="col-md-6">    
+                            
+         <input type='checkbox' name='add_food' value='yes' />  Add update(s) to customer perception:
+         <br>
+         <select name="perception_to_add" multiple="" class="ui fluid search dropdown", size="5" style="width:400px">
+  			  <option  value = 'good service'> good service </option>
+  			  <option  value = 'great service'> great service </option>
+ 			  <option  value = 'good food'> good food </option>
+ 			  <option  value = 'great food'> great food </option>
+ 			  <option  value = 'good prices'> good prices </option>
+  			  <option  value = 'great prices'> great prices </option>  	
+  			  <option  value = 'really friendly'> really friendly </option>		
+  			  <option  value = 'extremely helpful'> extremely helpful </option> 
+  			  <option  value = 'great experience'> great experience </option> 
+            </select>
+  
+  			<br>
+  			<br>
+
+                                  
          <input type='checkbox' name='add_food' value='yes' />  Add food option(s) [A through I]:
          <br>
-  		 <select name="food_to_add" multiple="" class="ui fluid search dropdown", size="15">
+   		 <select name="food_to_add" multiple="" class="ui selection dropdown" size="5" style="width:400px">
+   		 <i class="dropdown icon"></i>
   		      <option  value = 'adobo fried rice'> adobo fried rice </option>
   		      <option  value = 'alaskan king crab'> alaskan king crab </option>
   			  <option  value = 'appetizers'> appetizers </option>
@@ -137,12 +184,13 @@
   			  <option  value = 'ice cream sandwich'> ice cream sandwich </option>
   			  <option  value = 'iced tea'> iced tea </option>
             </select>
+
             
            <br>
            <br>
          <input type='checkbox' name='add_food' value='yes' />  Add food option(s) [K through Z]:
          <br>
-         <select name="food_to_add" multiple="" class="ui fluid search dropdown", size="15">
+         <select name="food_to_add" multiple="" class="ui fluid search dropdown", size="5" style="width:400px">
   			  <option  value = 'key lime pie'> key lime pie </option>
   			  <option  value = 'king crab legs'> king crab legs </option>
  			  <option  value = 'kung pao chicken'> kung pao chicken </option>
@@ -229,28 +277,10 @@
   
   			<br>
   			<br>
- 
-        </div>
-
-        <div class="col-md-4"> 
-
-         <input type='checkbox' name='add_food' value='yes' />  Add update(s) to customer perception:
-         <br>
-         <select name="perception_to_add" multiple="" class="ui fluid search dropdown", size="6">
-  			  <option  value = 'good service'> good service </option>
-  			  <option  value = 'great service'> great service </option>
- 			  <option  value = 'good food'> good food </option>
- 			  <option  value = 'great food'> great food </option>
- 			  <option  value = 'good prices'> good prices </option>
-  			  <option  value = 'great prices'> great prices </option>  			  
-            </select>
-  
-  			<br>
-  			<br>
-        
+         
          <input type='checkbox' name='add_att' value='yes' />  Add ambience:
           <br>
-  		  <select name="att_to_add" multiple="" class="ui fluid dropdown", size="6">
+  		  <select name="att_to_add" multiple="" class="ui fluid dropdown", size="5" style="width:400px">
   		 	  <option  value = 'Ambience.casual'> casual </option>
   		 	  <option  value = 'Ambience.classy'>classy </option>
   		 	  <option  value = 'Ambience.divey'> divey </option>
@@ -265,9 +295,9 @@
            <br>
            <br>
  
-          <input type='checkbox' name='add_att' value='yes' />  Add dietary option(s):
+          <input type='checkbox' name='add_att' value='yes' />  Add dietary option(s) or meal times(s):
           <br>
-  		  <select name="att_to_add" multiple="" class="ui fluid dropdown", size="6">
+  		  <select name="att_to_add" multiple="" class="ui fluid dropdown", size="5" style="width:400px">
   		  	  <option  value = 'Dietary Restrictions.dairy-free'>  dairy free </option>
  			  <option  value = 'Dietary Restrictions.gluten-free'> gluten-free</option>
  			  <option  value = 'Dietary Restrictions.halal'>  halal </option>
@@ -275,14 +305,6 @@
  			  <option  value = 'Dietary Restrictions.soy-free'> soy-free </option>
  			  <option  value = 'Dietary Restrictions.vegan'> vegan </option>
  			  <option  value = 'Dietary Restrictions.vegetarian'>  vegetarian </option>
-          </select>
- 
-          <br>
-          <br>
-          
-          <input type='checkbox' name='add_att' value='yes' />  Add meal time(s):
-          <br> 
-          <select name="att_to_add" multiple="" class="ui fluid dropdown", size="6">
    			  <option  value = 'Good For.breakfast'> breakfast </option>
  			  <option  value = 'Good For.brunch'> brunch </option>
  			  <option  value = 'Good For.lunch'> lunch </option>			  
@@ -296,7 +318,7 @@
  			  
           <input type='checkbox' name='add_att' value='yes' />  Add other attribute(s):
           <br>
-  		  <select name="att_to_add" multiple="" class="ui fluid dropdown", size="10">
+  		  <select name="att_to_add" multiple="" class="ui fluid dropdown", size="5" style="width:400px">
   		 	  <option  value = 'Accepts Credit Cards'> accepts credit cards </option>
   		 	  <option  value = 'Accepts Insurance'> accepts insurance </option>
   		 	  			  
@@ -354,10 +376,24 @@
               
               </div>
   
-              <div class="col-lg-4">
+              <div class="col-lg-6">
+                <p style="color:blue;">                
+               Current star rating: {{stars}}.
+               <br>
+               Current review count: {{nrev}}.
+               <br>
+               <br>
+               Number of new reviews anticipated?
+              <input type='text' name='num_new' placeholder="10">
+              <br>
+              <br>
+              <button type="submit"  class="btn btn-dark btn-lg" name="btn" value={{option3}}> Predict new rating </button>
+              <br>
+              <br>
                You chose to add 
                <br>
                {{foods}} 
+               <br>
                to menu and 
                <br>
                {{perceptions}}
@@ -368,7 +404,17 @@
                <br>
                to attributes.
                <br>
-              <button type="submit"  class="btn btn-dark btn-lg" name="btn" value={{option3}}> Predict new rating </button>
+               <br>
+               Current predicted rating: 
+               <br>
+               {{stars_predict_current}}.
+               <br>
+               <br>
+               Predicted rating after {{nnew}} new reviews:
+               <br>
+               <h3>{{stars_predict}}</h3>.
+               </p>
+
               </div>
                                   
             </div>
@@ -379,5 +425,15 @@
 
 
     </div>    
+    
+    <!-- jQuery -->
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/jquery-ui/jquery-ui.js"></script>
+    <!-- <script src="../node_modules/semantic-ui-dropdown/dropdown.js"></script> -->
+    
+    <script  src="../static/css/UI-Dropdown-master/index.js"></script>   
+    <!-- <script  src="../node_modules/semantic-ui-dropdown/package.js"></script>  -->      
+    <script  src="../static/css/UI-Dropdown-master/dropdown.js"></script> 
+    
   </body>
 </html>
