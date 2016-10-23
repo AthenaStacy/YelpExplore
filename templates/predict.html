@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+<title>My Predictions</title>
+
+  <head>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Theme CSS -->
+    <link href="../static/css/agency2.css" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.2.min.css" type="text/css" />
+    <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.2.min.js"></script>
+
+  </head>  
+    
+  <body>
+
+    <!-- Prediction Section -->
+    <section id="predict" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading">Star rating predictions for your business</h3>
+                 <!--   <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
+                 <!--  -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                         <form id='answerform' method='post' action='/next' >
+                         
+                        <div class="row">
+                            <div class="col-md-4">          
+         <input type='checkbox' name='add_food' value='yes' />  Add food option(s) [A through I]:
+         <br>
+  		 <select name="food_to_add" multiple="" class="ui fluid search dropdown", size="15">
+  		      <option  value = 'adobo fried rice'> adobo fried rice </option>
+  		      <option  value = 'alaskan king crab'> alaskan king crab </option>
+  			  <option  value = 'appetizers'> appetizers </option>
+ 			  <option  value = 'bar food'> bar food </option>			  
+ 			  <option  value = 'baby back ribs'> baby back ribs </option>
+ 			  <option  value = 'bacon'> bacon </option>
+ 			  <option  value = 'bacon wrapped dates'> bacon wrapped dates </option>
+ 			  <option  value = 'bbq chicken pizza'> bbq chicken pizza </option>
+ 			  <option  value = 'bbq sauce'> bbq sauce</option>
+ 			  <option  value = 'bean cheese burrito'> bean & cheese burrito </option>
+ 			  <option  value = 'beef noodle soup'> beef noodle soup </option>
+ 			  <option  value = 'beer selection'> beer selection</option>
+ 			  <option  value = 'bloody mary bar'> bloody mary bar</option>
+  			  <option  value = 'blue cheese' > blue cheese </option>
+  			  <option  value = 'bread pudding'> bread pudding </option>
+  			  <option  value = 'burgers'> burgers </option>
+  			  <option  value = 'burrito'> burritos </option>
+  			  <option  value = 'caesar salad'> caesar salad </option>	
+  			  <option  value = 'carne asada'> carne asada </option>	
+ 			  <option  value = 'carne asada burrito'> carne asada burrito </option>
+ 			  <option  value = 'carne asada fries'> carne asada fries </option>
+ 			  <option  value = 'carne asada tacos'> carne asada tacos </option>
+ 			  <option  value = 'chicago style pizza'> chicago style pizza </option>			  
+ 			  <option  value = 'chicken fried rice'> chicken fried rice </option>
+ 			  <option  value = 'chicken fried steak'> chicken fried steak </option>
+ 			  <option  value = 'chicken noodle soup'> chicken noodle soup </option>
+ 			  <option  value = 'chicken pad thai'> chicken pad tahi </option>
+ 			  <option  value = 'chicken pot pie'> chicken pot pie </option>
+   			  <option  value = 'chicken salad'> chicken salad </option>			  
+ 			  <option  value = 'chicken salad sandwich'> chicken salad sandwich </option>
+   			  <option  value = 'chicken sandwich'> chicken sandwich </option>			  
+ 			  <option  value = 'chicken tikka masala'> chicken tikka masala </option>			  
+  			  <option  value = 'chicken waffles'> chicken & waffles </option>
+  			  <option  value = 'chicken wings'> chicken wings </option>	
+ 			  <option  value = 'chilean sea bass'> chilean sea bass </option>
+  			  <option  value = 'chili cheese fries'> chili cheese fries </option> 			  
+  			  <option  value = 'chips salsa'> chips & salsa </option>
+  			  <option  value = 'chocolate cake'> chocolate cake </option>	
+ 			  <option  value = 'chocolate chip cookie'> chocolate chip cookie </option>
+ 			  <option  value = 'chocolate covered strawberries'> chocolate covered strawberries </option>
+ 			  <option  value = 'chocolate ice cream'> chocolate ice cream </option>
+ 			  <option  value = 'cocktails'> cocktails </option> 
+  			  <option  value = 'corned beef hash'> corned beef hash </option>
+ 			  <option  value = 'country fried steak'> country fried steak </option>			  			  			    			   
+  			  <option  value = 'crab legs'> crab legs </option> 
+ 			  <option  value = 'cream cheese'> cream cheese </option>
+  			  <option  value = 'cream cheese frosting'> cream cheese frosting </option>			  
+ 			  <option  value = 'creme brulee'> creme brulee </option>
+  			  <option  value = 'coconut ice cream'> coconut ice cream </option>		
+ 			  <option  value = 'deep dish pizza'> deep dish pizza </option>
+  			  <option  value = 'dim sum'> dim sum </option>
+  			  <option  value = 'dipping sauce'> dipping sauce </option>
+ 			  <option  value = 'duck fat fries'> duck fat fries </option>
+ 			  <option  value = 'dulce de leche'> dulce de leche </option>  			  
+ 			  <option  value = 'fried ice cream'> fried ice cream </option>
+ 			  <option  value = 'egg drop soup'> egg drop doup </option>
+  			  <option  value = 'egg rolls'> egg rolls </option>
+  			  <option  value = 'eggs benedict'> eggs benedict </option>
+  			  <option  value = 'filet mignon'> filet mignon </option>
+  			  <option  value = 'fish chips'> fish & chips </option>
+  			  <option  value = 'fish tacos'> fish tacos </option>
+  			  <option  value = 'foie gras'> foie gras </option>
+  			  <option  value = 'french fries'> french fries </option>
+  			  <option  value = 'french onion soup'> french onion soup </option>
+  			  <option  value = 'french toast'> french toast</option>
+  			  <option  value = 'fried chicken'> fried chicken </option>
+  			  <option  value = 'fried green tomatoes'> fried green tomatoes </option>
+  			  <option  value = 'fried rice'> fried rice </option>
+  			  <option  value = 'fruit'> fruit </option>
+  			  <option  value = 'garlic mashed potatoes'> garlic mashed potatoes </option>
+ 			  <option  value = 'general tso chicken'> general tso chicken </option>  			  
+  			  <option  value = 'gluten free'> gluten free </option>
+  			  <option  value = 'grilled cheese'> grilled cheese </option>
+  			  <option  value = 'grilled cheese sandwich'> grilled cheese sandwich </option>
+  			  <option  value = 'grilled chicken'> grilled chicken </option>
+  			  <option  value = 'goat cheese'> goat cheese </option>
+  			  <option  value = 'hash browns'> hash browns </option>
+  			  <option  value = 'hot chocolate'> hot chocolate </option>
+  			  <option  value = 'hot dogs'> hot dogs </option>
+  			  <option  value = 'hot sour soup'> hot & sour soup </option> 			   			   			  
+  			  <option  value = 'ice cream'> ice cream </option>
+  			  <option  value = 'ice cream sandwich'> ice cream sandwich </option>
+  			  <option  value = 'iced tea'> iced tea </option>
+            </select>
+            
+           <br>
+           <br>
+         <input type='checkbox' name='add_food' value='yes' />  Add food option(s) [K through Z]:
+         <br>
+         <select name="food_to_add" multiple="" class="ui fluid search dropdown", size="15">
+  			  <option  value = 'key lime pie'> key lime pie </option>
+  			  <option  value = 'king crab legs'> king crab legs </option>
+ 			  <option  value = 'kung pao chicken'> kung pao chicken </option>
+ 			  <option  value = 'lobster mac cheese'> lobster mac & cheese </option>
+ 			  <option  value = 'lobster mashed potatoes'> lobster mashed potatoes </option>
+  			  <option  value = 'mac cheese'> mac & cheese </option>  			  
+  			  <option  value = 'mango sticky rice'> mango sticky rice </option> 			   			  
+  			  <option  value = 'mashed potatoes'> mashed potatoes </option>
+  			  <option  value = 'mochi ice cream'> mochi ice cream </option>
+  			  <option  value = 'new york pizza'> new york pizza </option>
+ 			  <option  value = 'new york steak'> new york steak </option>
+ 			  <option  value = 'new york strip'> new york strip </option>
+  			  <option  value = 'onion rings'>  onion rings</option>
+  			  <option  value = 'oysters half shell'> oysters half shell </option>  	
+  	 		  <option  value = 'pad see ew'> pad see ew </option> 			   			   			   			   			   			  		   			  
+  			  <option  value = 'pad thai'> pad thai </option>
+  			  <option  value = 'pancakes'> pancakes </option>
+  			  <option  value = 'peanut butter'> peanut butter </option>
+  			  <option  value = 'peanut butter chocolate'> peanut butter chocolate </option>
+  			  <option  value = 'philly cheese steak'> philly cheese steak </option>
+  			  <option  value = 'pho'> pho </option>
+  			  <option  value = 'pico de gallo'> pico de gallo </option>
+  			  <option  value = 'pie'> pie </option>
+  			  <option  value = 'pizza'> pizza </option>
+  			  <option  value = 'pineapple fried rice'> pineapple fried rice </option>
+  			  <option  value = 'pork fried rice'> pork fried rice </option> 			  
+  			  <option  value = 'pork belly'> pork belly </option>
+  			  <option  value = 'potato salad'> potato salad </option>
+  			  <option  value = 'prime rib'> prime rib </option>
+  			  <option  value = 'pulled pork'> pulled pork </option>
+  			  <option  value = 'pulled pork sandwich'> pulled pork sandwich </option> 			  
+ 			  <option  value = 'red beans rice'> red beans rice </option>
+ 			  <option  value = 'red velvet cake'> red velvet cake </option>
+ 			  <option  value = 'red velvet cupcake'> red velvet cupcake </option>  			    			  
+  			  <option  value = 'rib eye'> rib eye </option>
+  			  <option  value = 'rice beans'> rice & beans </option>
+  			  <option  value = 'rolls'> rolls </option>  			  
+  			  <option  value = 'roast beef sandwich'> roast beef sandwich </option>
+ 			  <option  value = 'roasted red pepper'> roasted red pepper </option>
+  			  <option  value = 'sage fried chicken'> sage fried chicken </option>
+  			  <option  value = 'salad bar'> salad bar </option>
+  			  <option  value = 'salmon'> salmon </option>
+  			  <option  value = 'salsa'> salsa </option>
+  			  <option  value = 'sandwiches'> sandwiches </option>
+  			  <option  value = 'sausage'> sausage </option>
+  			  <option  value = 'sea bass'> sea bass </option>
+  			  <option  value = 'seafood'> seafood </option>
+  			  <option  value = 'shrimp'> shrimp </option>
+  			  <option  value = 'shrimp fried rice'> shrimp fried rice </option>
+ 			  <option  value = 'shrimp po boy'> shrimp po boy </option> 			   			   			  
+  			  <option  value = 'short rib'> short rib </option>  			  
+  			  <option  value = 'snow crab legs'> snow crab legs </option>
+ 			  <option  value = 'soft shell crab'> soft shell crab </option>
+  			  <option  value = 'soup'> soup </option>
+  			  <option  value = 'sour cream'> sour cream </option>
+ 			  <option  value = 'spicy tuna roll'> spicy tuna roll </option>
+ 			  <option  value = 'spinach artichoke dip'> spinach artichoke dip </option>
+ 			  <option  value = 'spring rolls'> spring rolls </option>
+ 			  <option  value = 'squeezed orange juice'> squeezed orange juice </option>
+ 			  <option  value = 'sticky toffee pudding'> sticky toffee pudding </option>
+ 			  <option  value = 'sun dried tomatoes'> sun dried tomatoes </option>
+ 			  <option  value = 'sushi'> sushi </option>
+  			  <option  value = 'sushi bar'> sushi bar </option>
+  			  <option  value = 'sweet potato'> sweet potato fries </option>
+ 			  <option  value = 'sweet potato fries'> sweet potato fries </option>
+ 			  <option  value = 'sweet potato tots'> sweet potato tots </option>
+              <option  value = 'sweet sour chicken'> sweet sour chicken </option>
+              <option  value = 'sweet sour pork'> sweet sour pork </option>
+              <option  value = 'sweet sour sauce'> sweet sour sauce </option>                                            			   			  
+  			  <option  value = 'tacos'> tacos </option>
+  			  <option  value = 'tacos el gordo'> tacos el gordo </option>
+  			  <option  value = 'tea'> tea </option>
+  			  <option  value = 'tea ice cream'> tea ice cream </option>
+  			  <option  value = 'thai iced tea'> thai iced tea </option> 
+  			  <option  value = 'thin crust pizza'> thin crust pizza </option>
+  			  <option  value = 'tom yum soup'> tom yum soup </option>
+  			  <option  value = 'truffle mac cheese'> truffle mac cheese </option>
+  			  <option  value = 'vanilla ice cream'> vanilla ice cream </option>
+  			  <option  value = 'vegan'> vegan </option>
+  			  <option  value = 'vegetarian'> vegetarian </option>
+  			  <option  value = 'whipped cream'> whipped cream </option>
+  			  <option  value = 'wine list'> wine list </option>
+            </select>
+  
+  			<br>
+  			<br>
+ 
+        </div>
+
+        <div class="col-md-4"> 
+
+         <input type='checkbox' name='add_food' value='yes' />  Add update(s) to customer perception:
+         <br>
+         <select name="perception_to_add" multiple="" class="ui fluid search dropdown", size="6">
+  			  <option  value = 'good service'> good service </option>
+  			  <option  value = 'great service'> great service </option>
+ 			  <option  value = 'good food'> good food </option>
+ 			  <option  value = 'great food'> great food </option>
+ 			  <option  value = 'good prices'> good prices </option>
+  			  <option  value = 'great prices'> great prices </option>  			  
+            </select>
+  
+  			<br>
+  			<br>
+        
+         <input type='checkbox' name='add_att' value='yes' />  Add ambience:
+          <br>
+  		  <select name="att_to_add" multiple="" class="ui fluid dropdown", size="6">
+  		 	  <option  value = 'Ambience.casual'> casual </option>
+  		 	  <option  value = 'Ambience.classy'>classy </option>
+  		 	  <option  value = 'Ambience.divey'> divey </option>
+  		 	  <option  value = 'Ambience.hipster'> hipster </option>
+  		 	  <option  value = 'Ambience.intimate'> intimate </option>
+  		 	  <option  value = 'Ambience.touristy'> touristy  </option>
+ 			  <option  value = 'Ambience.trendy'> trendy</option>
+ 			  <option  value = 'Ambience.romantic'> romantic </option>
+ 			  <option  value = 'Ambience.upscale'>  upscale </option>
+ 		   </select>
+ 
+           <br>
+           <br>
+ 
+          <input type='checkbox' name='add_att' value='yes' />  Add dietary option(s):
+          <br>
+  		  <select name="att_to_add" multiple="" class="ui fluid dropdown", size="6">
+  		  	  <option  value = 'Dietary Restrictions.dairy-free'>  dairy free </option>
+ 			  <option  value = 'Dietary Restrictions.gluten-free'> gluten-free</option>
+ 			  <option  value = 'Dietary Restrictions.halal'>  halal </option>
+ 			  <option  value = 'Dietary Restrictions.kosher'> kosher </option>
+ 			  <option  value = 'Dietary Restrictions.soy-free'> soy-free </option>
+ 			  <option  value = 'Dietary Restrictions.vegan'> vegan </option>
+ 			  <option  value = 'Dietary Restrictions.vegetarian'>  vegetarian </option>
+          </select>
+ 
+          <br>
+          <br>
+          
+          <input type='checkbox' name='add_att' value='yes' />  Add meal time(s):
+          <br> 
+          <select name="att_to_add" multiple="" class="ui fluid dropdown", size="6">
+   			  <option  value = 'Good For.breakfast'> breakfast </option>
+ 			  <option  value = 'Good For.brunch'> brunch </option>
+ 			  <option  value = 'Good For.lunch'> lunch </option>			  
+ 			  <option  value = 'Good For.dinner'> dinner </option>
+ 			  <option  value = 'Good For.dessert'> dessert </option>
+ 			  <option  value = 'Good For.latenight'> late-night </option>
+ 		  </select>
+ 			  
+ 			<br>
+ 			 <br>
+ 			  
+          <input type='checkbox' name='add_att' value='yes' />  Add other attribute(s):
+          <br>
+  		  <select name="att_to_add" multiple="" class="ui fluid dropdown", size="10">
+  		 	  <option  value = 'Accepts Credit Cards'> accepts credit cards </option>
+  		 	  <option  value = 'Accepts Insurance'> accepts insurance </option>
+  		 	  			  
+ 			  <option  value = 'By Appointment Only'> by appointment only  </option>
+ 			  <option  value = 'BYOB'> BYOB </option>
+ 			  <option  value = 'Caters'> caters </option>
+ 			  <option  value = 'Coat Check'> coat check </option>
+ 			  <option  value = 'Corkage'> corkage </option>
+ 			  <option  value = 'Delivery'> delivery </option>
+ 			 
+ 			  <option  value = 'Dogs Allowed'> dogs allowed </option>
+ 			  <option  value = 'Drive-Thru'> drive thru </option>			  
+
+   			  <option  value = 'Good for Kids'> good for kids </option>
+  			  <option  value = 'Good For Dancing'> good for dancing </option>
+  			  <option  value = 'Good For Groups'> good for groups </option>
+  			  
+  			  <option  value = 'Happy Hour'> happy hour </option>
+  			  <option  value = 'Has TV' > has tv </option>
+  			  
+  			  <!--
+  			  <option  value = 'Hair Types Specialized In.africanamerican'> </option>	
+  			  <option  value = 'Hair Types Specialized In.asian'>  </option>
+  			  <option  value = 'Hair Types Specialized In.curly'>  </option>
+  			  <option  value = 'Hair Types Specialized In.coloring'>  </option>
+  			  <option  value = 'Hair Types Specialized In.extensions'>  </option>
+  			  <option  value = 'Hair Types Specialized In.kids'>  </option>
+  			  <option  value = 'Hair Types Specialized In.perms'>  </option>
+  			  <option  value = 'Hair Types Specialized In.straightperms'>  </option>
+  			   -->
+  			  		  		 
+  			  <option  value = 'Music.background_music'> music - background </option>
+  			  <option  value = 'Music.dj'> music - DJ </option>
+  			  <option  value = 'Music.jukebox'> music - jukebox </option>
+  			  <option  value = 'Music.karaoke'> music - karaoke </option>
+  			  <option  value = 'Music.live'> music - live </option>
+  			  <option  value = 'Music.video'> music -video </option>
+  			  
+  			  <option  value = 'Open 24 Hours'> open 24 hours </option>
+  			  <option  value = 'Order at Counter'> order at counter </option>
+			  <option  value = 'Outdoor Seating'> outdoor seating </option>
+			  
+  			  <option  value = 'Parking.garage'> parking - garage</option>
+  			  <option  value = 'Parking.lot'> parking - lot </option>
+  			  <option  value = 'Parking.street'> parking - street </option>
+  			  <option  value = 'Parking.valet'>  parking - valet </option>
+			  <option  value = 'Parking.validated'> parking - validated </option>
+  			  
+  			  <option  value = 'Take-out'> take-out </option>
+  			  <option  value = 'Takes Reservations'> takes reservations </option>
+  			  <option  value = 'Waiter Service'> waiter service </option>
+  			  <option  value = 'Wheelchair Accessible'>  wheelchair accessible</option>
+  			    
+              </select>
+              
+              </div>
+  
+              <div class="col-lg-4">
+               You chose to add 
+               <br>
+               {{foods}} 
+               to menu and 
+               <br>
+               {{perceptions}}
+               <br>
+               to customer perception and
+               <br>
+               {{atts}} 
+               <br>
+               to attributes.
+               <br>
+              <button type="submit"  class="btn btn-dark btn-lg" name="btn" value={{option3}}> Predict new rating </button>
+              </div>
+                                  
+            </div>
+        </div>
+          
+      </form>                
+    </section>
+
+
+    </div>    
+  </body>
+</html>

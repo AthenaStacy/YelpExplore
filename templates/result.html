@@ -1,44 +1,160 @@
 <!doctype html>
+<html>
 <title>The Result</title>
-<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style3.css')}}'>
-
-<style>
- table, th, td {
-    border: 1px solid black;
-}
-</style>
-
-<div class=page>
-  <h1>The Result</h1>
-  <div class=metanav>
+  <head>
   
-    <h4>
-      Top words for {{input_location}}:
-      <br>
-      <br>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-   
-<table style="width:95%">
-   <tr>
-    <th>unigrams</th>
-    <th>bigrams</th> 
-    <th>trigrams</th>
-  </tr>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Theme CSS -->
+    <link href="../static/css/agency.css" rel="stylesheet">
+
   
-  {% for j in unigram %}
+    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.2.min.css" type="text/css" />
+    <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.2.min.js"></script>
+    {{ script1 | safe }}
+    {{ script2 | safe }}
+	{{ script4 | safe }}
+  </head>  
   
-  <tr>
-    <td>{{unigram[j]}}</td>
-    <td>{{bigram[j]}}</td> 
-    <td>{{trigram[j]}}</td>
-  </tr>
+  
+  <body>
 
-  {% endfor %}
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Data and Comparisons</a>
+            </div>
 
-</table>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#words">Common Words</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#phrases">Unique Phrases</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#topatt">Top Attributes</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#maps">Maps</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#predict">Compare</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Analysis Complete!</div>
+                <div class="intro-heading"> </div> 
+                <a href="#words" class="page-scroll btn btn-xl">See Results</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top Words Section -->
+    <section id="words" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3>
+					<img src="{{ url_for('static',filename='wordcloudG.png')}}", width=500, height=400>
+					<img src="{{ url_for('static',filename='wordcloudB.png')}}", width=500, height=400>
+					</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Words Section -->
+    <section id="phrases" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading"> Unique Phrases in {{input_location}} Reviews</h3>
+					<h3>	{{ div1 | safe }} </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Attributes Grid Section -->
+    <section id="topatt" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading">Top attributes for {{input_location}}</h3>
+                    <h3> {{div2 | safe }} </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="maps" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading">Maps for {{input_map}}</h3>
+                 <!--   <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
+                 <h3> {{div4 | safe }} </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prediction Section -->
+    <section id="predict" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading">Compare with your business</h3>
+                 <!--   <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
+                 <!--  -->
+
+                <form id='answerform' method='post' action='/next' >
+                <h3>{{question2}}</h3>
+                <input type='text' name='business_url' />
+                <button type="submit"  class="btn btn-dark btn-lg" name="btn" value={{option2}}> Explore my Yelp Data </button>
+				</form>
+
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-    </h4>
-
-  </div>
-</div>
+    </div>    
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Query</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../static/css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center h1">
+
+  <h2>{{question1}}</h2>
+  <div class=metanav>
+
+    <h4>
+      <form id='answerform' method='post' action='next' >
+        <p>
+         
+         <!-- 
+          <input type='text' name='city_name' /> 
+ -->      
+          <input type='checkbox' name='refine_by_city' checked="checked" value='yes' /> Choose a city 
+ 		  <select  name='city_name'>
+ 			  <option  value = 'Charlotte'> Charlotte, NC</option>
+ 			  <option  value = 'Champaign'> Champaign, IL</option>
+ 			  <option  value = 'Dallas'> Dallas, TX</option>
+  			  <option  value = 'Las Vegas' > Las Vegas, NV</option>
+  			  <option  value = 'Madison'> Madison, WI</option>
+  			  <option  value = 'Pittsburgh'> Pittsburgh, PA</option>		  
+ 			  <option  value = 'Phoenix'> Phoenix, AZ</option>
+  			  <option  value = 'Scottsdale'> Scottsdale, AZ</option>
+           </select>
+         
+          
+        <br>
+        <br>
+        
+         <input type='checkbox' name='refine_by_category' value='yes' />  Choose category:
+  		 <select  name='category_name'>
+ 			  <option  value = 'American'> American Cuisine</option>
+ 			  <option  value = 'Fast'> Fast Food</option>
+ 			  <option  value = 'Italian'> Italian Cuisine</option>
+  			  <option  value = 'Mexican' > Mexican Cuisine</option>
+  			  <option  value = 'Chinese'> Chinese Cuisine</option>
+  			  <option  value = 'Japanese'> Japanse Cuisine</option>	
+  			  <option  value = 'Coffee'> Coffee Shops</option>	
+  			  <option  value = 'Dessert'> Bakeries & Dessert</option>
+  			  <option  value = 'Bars'> Bars, Pubs & Nightlife</option>	
+  			  <option  value = 'Hotels'> Hotels & Travel</option>
+  			  <option  value = 'Fashion'> Fashion</option>	  
+ 			  <option  value = 'Hair'> Hair Salons</option>
+ 			  <option  value = 'Nail'> Nail Salons</option>
+  			  <option  value = 'Medical'> Medical Services</option>
+  			  <option  value = 'Automotive'> Automotive Services</option>
+  			  <option  value = 'Gyms'> Gyms & Fitness Instruction</option>
+            </select>
+           
+          <br> 
+
+          <input type='checkbox' name='refine_by_search' value='yes' /> Search for category:  
+          <input type='text' name='category_search' />
+          
+        </p>
+        
+        <p>
+        <button type="submit"  class="btn btn-dark btn-lg" name="btn" value={{option1}}> Check Out the Competition </button>
+        </p>
+        
+        <br>
+        <h2>{{question2}}</h2>
+        <input type='text' name='business_url' />
+        <button type="submit"  class="btn btn-dark btn-lg" name="btn" value={{option2}}> Explore my Yelp Data </button>
+        
+      </form>
+    </h4>
+ </div>
+
+
+
+        </div>
+    </header>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myDropdown");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+  </script>        
+          
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<title>The Result</title>
+  <head>
+    <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.2.min.css" type="text/css" />
+    <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.2.min.js"></script>
+    {{ script | safe }}
+  </head>  
+  <body>
+    <div class=page>
+      <h1>Popular words for {{input_location}} reviews</h1>
+      {{ div | safe }}
+
+<!--
+<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style3.css')}}'>
+
+<style>
+ table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+    <h4>
+      Top words for {{input_location}}:
+      <br>
+      <br>
+
+<table style="width:95%">
+   <tr>
+    <th>positive uni</th>
+    <th>positive tri</th>
+    <th>negative uni</th>
+    <th>negative tri</th>
+  </tr>
+  
+  {% for j in uni_good %}
+  
+  <tr>
+    <td>{{uni_good[j]}}</td>
+    <td>{{tri_good[j]}}</td>
+    <td>{{uni_bad[j]}}</td>
+    <td>{{tri_bad[j]}}</td>
+  </tr>
+
+  {% endfor %}
+</table>
+
+    </h4>
+-->
+    </div>    
+  </body>
+</html>
